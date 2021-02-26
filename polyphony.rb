@@ -10,7 +10,7 @@ server = TCPServer.open('127.0.0.1', 9090)
 server.accept_loop do |client|
   spin do
     client.recv(1024)
-    client.send("HTTP/1.1 200 Ok\r\nConnection: close\r\n\r\n",0)
+    client.send("HTTP/1.1 204 No Content\r\nConnection: close\r\n\r\n")
     client.close
   end
 end

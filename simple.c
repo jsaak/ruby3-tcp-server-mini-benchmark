@@ -36,7 +36,7 @@ int main (int argc, char *argv[]) {
 
   printf("Server is listening on %d\n", port);
 
-  char* response = "HTTP/1.1 200 Ok\r\nConnection: close\r\n\r\n";
+  char* response = "HTTP/1.1 204 No Content\r\nConnection: close\r\n\r\n";
   size_t response_size = strlen(response);
 
   while (1) {

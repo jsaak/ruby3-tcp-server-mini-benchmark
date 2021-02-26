@@ -11,7 +11,7 @@ Async do |task|
 		
 		task.async do
       client.recv(1024)
-      client.send("HTTP/1.1 200 Ok\r\nConnection: close\r\n\r\n",0)
+      client.send("HTTP/1.1 204 No Content\r\nConnection: close\r\n\r\n")
       client.close
 		end
 	end

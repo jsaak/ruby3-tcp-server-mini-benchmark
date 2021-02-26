@@ -13,7 +13,7 @@ Fiber.schedule do
     client = server.accept
     Fiber.schedule do
       client.recv(1024)
-      client.send("HTTP/1.1 200 Ok\r\nConnection: close\r\n\r\n",0)
+      client.send("HTTP/1.1 204 No Content\r\nConnection: close\r\n\r\n",0)
       client.close
     end
   end

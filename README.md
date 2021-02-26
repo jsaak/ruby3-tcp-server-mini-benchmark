@@ -8,35 +8,33 @@ And then I benchmarked with $ wrk -t1 -c1 -d3s http://localhost:9090
 
 We all know that this kind of benchmarks should not be taken very seriously!!
 
-1. async-scheduler.rb latency was slow and erratic, I measured a whopping 1 second latency
-2. libev-scheduler.rb is impressing me with sub ms latencies
-3. polyphony.rb was very slow, clearly I am missing something here, if you know what please share!
+(async-scheduler.rb latency was slow and erratic, something is not right, i am not sure what)
 
 
 Request/second (wrk -t1 -c1)
 
-async-scheduler.rb: 15529.59
-async.rb:           10148.64   
+async-scheduler.rb: 25305.48
+async.rb:           19461.61
 fork.rb:              950.23
-select-fiber.rb:    16267.28
-thread.rb:          13401.36
-polyphony.rb:           1.00
-libev-scheduler.rb: 16361.93
-eventmachine.rb:    12611.89
-simple.c:           21054.41
+select-fiber.rb:    28331.37
+thread.rb:          24135.52
+polyphony.rb:       21679.29
+libev-scheduler.rb: 25370.96
+eventmachine.rb:    15376.89
+simple.c:           31277.58
 
 
 Latency (wrk -t3 -c6)      Avg     Stdev     Max   +/- Stdev
 
-async-scheduler.rb:    58.64ms  173.49ms   1.02s      90.34%
-async.rb:             399.90us   59.37us   1.02ms     73.58%
-fork.rb:                7.17ms    2.41ms  21.40ms     75.75%
-select-fiber.rb:      199.14us   42.44us 730.00us     78.72%
-thread.rb:            329.97us   73.47us   2.20ms     85.81%
-polyphony.rb            8.09ms   41.14ms 412.12ms     95.53%
-libev-scheduler.rb     64.92us   33.26us 598.00us     94.93%
-eventmachine.rb       125.52us   91.61us   2.94ms     95.39%
-simple.c:              19.75us   28.40us 664.00us     97.34%
+async-scheduler.rb:     3.03ms   14.63ms 217.58ms   94.82%
+async.rb:               0.20ms    0.04ms   0.86ms   81.46%
+fork.rb:                4.94ms    1.68ms  21.90ms   82.11%
+select-fiber.rb:        0.01ms   30.50us   0.57ms   81.87%
+thread.rb:              0.23ms  285.43us   2.47ms   93.08%
+polyphony.rb            2.29ms   17.41ms 204.07ms   97.99%
+libev-scheduler.rb      0.07ms   39.43us   0.89ms   88.08%
+eventmachine.rb         0.20ms  223.19us   2.87ms   92.21%
+simple.c:               0.03ms   32.78us   0.73ms   96.12%
 
 
 

@@ -2,7 +2,7 @@ require 'eventmachine'
 
 class EMServer < EM::Connection
   def receive_data(data)
-    send_data("HTTP/1.1 200 Ok\r\nConnection: close\r\n\r\n")
+    send_data("HTTP/1.1 204 No Content\r\nConnection: close\r\n\r\n")
     close_connection_after_writing
   end
 end
