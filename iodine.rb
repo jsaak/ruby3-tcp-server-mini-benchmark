@@ -12,6 +12,6 @@ end
 APP = Proc.new { SimpleHTTP }
 
 Iodine.listen service: :raw, handler: APP, port: "9090"
-Iodine.threads = -2
+Iodine.threads = 1
 Iodine.workers = 0
 Iodine.start
