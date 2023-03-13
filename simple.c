@@ -45,8 +45,8 @@ int main (int argc, char *argv[]) {
 
     if (client_fd < 0) on_error("Could not establish new connection\n");
 
-		recv(client_fd, buf, BUFFER_SIZE, 0);
-		send(client_fd, response, response_size, 0);
+    recv(client_fd, buf, BUFFER_SIZE, 0);
+    send(client_fd, response, response_size, 0);
     close(client_fd);
   }
 
