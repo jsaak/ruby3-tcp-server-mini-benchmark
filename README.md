@@ -1,5 +1,5 @@
 ```
-I copy pasted some ruby TCP echo servers from the internet and turned them to a minimal HTTP server.
+I copy pasted some ruby TCP echo servers from the internet and turned them into a minimal HTTP server.
 Also I included a very simple c server too just for reference.
 
 You can run these benchamrk by installing the gems:
@@ -7,7 +7,7 @@ You can run these benchamrk by installing the gems:
   - install wrk
   - then running benchmark.rb
 
-We all know that this kind of benchmarks should not be taken very seriously!!
+We all know that these kind of benchmarks should not be taken very seriously!!
 
 
 ruby 3.2.1 (2023-02-08 revision 31819e82c8) [x86_64-linux]
