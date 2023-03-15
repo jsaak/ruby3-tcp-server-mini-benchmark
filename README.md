@@ -2,8 +2,6 @@
 I copy pasted some ruby TCP echo servers from the internet and turned them to a minimal HTTP server.
 Also I included a very simple c server too just for reference.
 
-gem install async async-io eventmachine iodine libev_scheduler polyphony
-
 You can run these benchamrk by installing the gems:
   - gem install async async-io eventmachine iodine polyphony
   - install wrk
