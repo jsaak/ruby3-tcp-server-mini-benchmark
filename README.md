@@ -2,39 +2,28 @@
 I copy pasted some ruby TCP echo servers from the internet and turned them to a minimal HTTP server.
 Also I included a very simple c server too just for reference.
 
-All servers were run on ruby 3.0.0p0
-(installed with https://github.com/postmodern/ruby-install)
-And then I benchmarked with $ wrk -t1 -c1 -d3s http://localhost:9090
+gem install async async-io eventmachine iodine libev_scheduler polyphony
+
+You can run these benchamrk by installing the gems:
+  - gem install async async-io eventmachine iodine polyphony
+  - install wrk
+  - then running benchmark.rb
 
 We all know that this kind of benchmarks should not be taken very seriously!!
 
-(async-scheduler.rb latency was slow and erratic, something is not right, i am not sure what)
 
+ruby 3.2.1 (2023-02-08 revision 31819e82c8) [x86_64-linux]
+#1 SMP Debian 5.10.149-2 (2022-10-21) x86_64 GNU/Linux
 
-Request/second (wrk -t1 -c1)
-
-async-scheduler.rb: 25305.48
-async.rb:           19461.61
-fork.rb:              950.23
-select-fiber.rb:    28331.37
-thread.rb:          24135.52
-polyphony.rb:       21679.29
-libev-scheduler.rb: 25370.96
-eventmachine.rb:    15376.89
-simple.c:           31277.58
-
-
-Latency (wrk -t3 -c6)      Avg     Stdev     Max   +/- Stdev
-
-async-scheduler.rb:     3.03ms   14.63ms 217.58ms   94.82%
-async.rb:               0.20ms    0.04ms   0.86ms   81.46%
-fork.rb:                4.94ms    1.68ms  21.90ms   82.11%
-select-fiber.rb:        0.01ms   30.50us   0.57ms   81.87%
-thread.rb:              0.23ms  285.43us   2.47ms   93.08%
-polyphony.rb            2.29ms   17.41ms 204.07ms   97.99%
-libev-scheduler.rb      0.07ms   39.43us   0.89ms   88.08%
-eventmachine.rb         0.20ms  223.19us   2.87ms   92.21%
-simple.c:               0.03ms   32.78us   0.73ms   96.12%
+Implementation       Req/sec  Latency:  Avg      Stdev     Max   +/- Stdev
+async.rb              8110.25        487.21us  386.71us  10.09ms   93.30%
+async-scheduler.rb   10411.65        364.85us  483.31us   9.72ms   95.09%
+eventmachine.rb      10252.45        334.32us  272.18us   8.78ms   97.52%
+fork.rb                434.42         13.23ms    4.15ms  35.90ms   72.72%
+iodine.rb            10942.76        287.92us  158.09us   3.82ms   94.80%
+select-fiber.rb      12640.04        428.13us  844.83us  12.11ms   93.22%
+simple.c             14483.77        255.02us  620.55us  11.60ms   96.85%
+thread.rb            10749.19        267.34us  275.75us   6.34ms   94.84%
 
 
 

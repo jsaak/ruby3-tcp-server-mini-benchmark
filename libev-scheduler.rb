@@ -18,5 +18,3 @@ Fiber.schedule do
     end
   end
 end
-
-scheduler.run
