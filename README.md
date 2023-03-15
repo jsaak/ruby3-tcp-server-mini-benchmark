@@ -13,17 +13,17 @@ We all know that this kind of benchmarks should not be taken very seriously!!
 
 
 ruby 3.2.1 (2023-02-08 revision 31819e82c8) [x86_64-linux]
-#1 SMP Debian 5.10.149-2 (2022-10-21) x86_64 GNU/Linux
+#1 SMP Debian 5.10.140-1 (2022-09-02) x86_64 GNU/Linux
 
 Implementation       Req/sec  Latency:  Avg      Stdev     Max   +/- Stdev
-async.rb              8110.25        487.21us  386.71us  10.09ms   93.30%
-async-scheduler.rb   10411.65        364.85us  483.31us   9.72ms   95.09%
-eventmachine.rb      10252.45        334.32us  272.18us   8.78ms   97.52%
-fork.rb                434.42         13.23ms    4.15ms  35.90ms   72.72%
-iodine.rb            10942.76        287.92us  158.09us   3.82ms   94.80%
-select-fiber.rb      12640.04        428.13us  844.83us  12.11ms   93.22%
-simple.c             14483.77        255.02us  620.55us  11.60ms   96.85%
-thread.rb            10749.19        267.34us  275.75us   6.34ms   94.84%
+async.rb             13570.99        280.50us  107.85us   1.38ms   88.28%
+async-scheduler.rb   17833.02        187.17us  140.03us   1.25ms   91.48%
+eventmachine.rb      14819.15        248.29us  252.58us   1.92ms   93.72%
+fork.rb               1027.72          5.11ms    2.56ms  20.26ms   68.91%
+iodine.rb            17651.42        134.65us   56.83us   0.88ms   78.14%
+select-fiber.rb      20266.69        146.79us   53.83us 796.00us   85.38%
+simple.c             22826.59         43.95us   40.71us   1.06ms   97.21%
+thread.rb            17547.56        268.80us  158.26us   2.61ms   94.87%
 
 
 
