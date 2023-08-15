@@ -8,15 +8,14 @@ implementations = %w(
   eventmachine.rb
   fork.rb
   iodine.rb
+  polyphony.rb
   select-fiber.rb
   simple.c
   thread.rb
 )
 
 #libev-scheduler.rb discontinued?
-#polyphony.rb
-
-#implementations = ['simple.c']
+#implementations = ['eventmachine.rb']
 
 def measure(params,result_start_with)
   command = "/usr/bin/wrk #{params} http://localhost:9090"
